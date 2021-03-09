@@ -1,0 +1,16 @@
+.header {
+  background-color: #F9F9F9;
+  height: 100px;
+  box-shadow: 0 0px 10px -6px rgb(117, 117, 117);
+}
+
+.header h1 {
+  margin: 0;
+  padding-top: 30px;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  color: #878787;
+  font-size: 2rem;
+  
+}
