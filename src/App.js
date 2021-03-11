@@ -1,14 +1,13 @@
 import React from "react";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
-import EmployeeTable from "./components/EmployeeTable";
+// import SearchBar from "./components/SearchBar";
+import EmployeeMain from "./components/EmployeeMain";
 
 function App() {
   return (
     <div>
       <Header />
-      <SearchBar />
-      <EmployeeTable />
+      <EmployeeMain />
     </div>
   );
 }

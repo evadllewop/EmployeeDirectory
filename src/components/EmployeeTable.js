@@ -1,30 +1,63 @@
 import React from "react";
 
-function EmployeeTable(props) {
+
+function EmployeeTable({ employees }) {
     return (
         <div className="container">
-            <table className="table table-dark table-sortable text-center caption-top">
-                <caption>List of Employees</caption>
+            <table className="table table-dark table-striped table-sortable text-center">
+
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
                         <th scope="col" data-field="name" data-sortable="true">
-                            <span onClick={() => props.sortBy("name", "last", "first")}>
+                            <span onClick={() => employees.sortBy("name", "last", "first")}>
                                 Name
             </span>
                         </th>
                         <th scope="col">
-                            <span onClick={() => props.sortBy("phone")}>Phone</span>
+                            <span>Phone</span>
                         </th>
                         <th scope="col">
-                            <span onClick={() => props.sortBy("email")}>Email</span>
+                            <span>Email</span>
                         </th>
                         <th scope="col">
-                            <span onClick={() => props.sortBy("dob", "date")}>DOB</span>
+                            <span>DOB</span>
                         </th>
                     </tr>
                 </thead>
-                <tbody>...</tbody>
+                <tbody>
+
+
+                    {employees[0] !== undefined && employees[0].name !== undefined ? (
+                        employees.map((employee) => {
+
+                            { console.log(employee.name.first) }
+                            let first = employee.name.first;
+                            let last = employee.name.last;
+                            let employeeName = `${first} ${last}`;
+                            // const dob = props.formatDate(employee.dob.date);
+
+                            return (
+                                <tr>
+                                    <td>
+                                        <img src={employee.picture.thumbnail} alt={employeeName} />
+                                    </td>
+                                    <td>
+                                        {employeeName}</td>
+                                    <td>
+                                        {employee.phone}</td>
+                                    <td>
+                                        {employee.email}</td>
+                                    <td>
+                                        {employee.dob}</td>
+                                </tr>
+                            )
+
+                        })
+                    ) : (<> </>)
+                    }
+
+                </tbody>
             </table>
         </div>
     )
