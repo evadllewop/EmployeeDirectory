@@ -40,10 +40,12 @@ class EmployeeMain extends Component {
                 />
 
                 <div className="container">
-                    // needs props passed
-                    <EmployeeTable
-                        employees={this.state.employees}
-                    />
+                    {this.state.employees !== undefined && this.state.employees.length !== 0 && this.state.employees[0].name !== undefined ? (
+                        <EmployeeTable
+                            employees={this.state.employees}
+                            formatDate={this.formatDate} />
+                    ) : (<div> Loading...</div>)}
+
                 </div>
             </div>
         )

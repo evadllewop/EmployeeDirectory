@@ -4,15 +4,15 @@ import React from "react";
 function EmployeeTable({ employees }) {
     return (
         <div className="container">
-            <table className="table table-dark table-striped table-sortable text-center">
+            {/* <div> {employees[0].phone}</div>
+            <div> {employees[0].name.first}</div> */}
+            <table className="table table-striped table-sortable text-center">
 
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
                         <th scope="col" data-field="name" data-sortable="true">
-                            <span onClick={() => employees.sortBy("name", "last", "first")}>
-                                Name
-            </span>
+                            <span>Name</span>
                         </th>
                         <th scope="col">
                             <span>Phone</span>
@@ -21,40 +21,30 @@ function EmployeeTable({ employees }) {
                             <span>Email</span>
                         </th>
                         <th scope="col">
-                            <span>DOB</span>
+                            <span>Age</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
 
 
-                    {employees[0] !== undefined && employees[0].name !== undefined ? (
+
+                    {
                         employees.map((employee) => {
 
-                            { console.log(employee.name.first) }
-                            let first = employee.name.first;
-                            let last = employee.name.last;
-                            let employeeName = `${first} ${last}`;
-                            // const dob = props.formatDate(employee.dob.date);
 
                             return (
                                 <tr>
-                                    <td>
-                                        <img src={employee.picture.thumbnail} alt={employeeName} />
-                                    </td>
-                                    <td>
-                                        {employeeName}</td>
-                                    <td>
-                                        {employee.phone}</td>
-                                    <td>
-                                        {employee.email}</td>
-                                    <td>
-                                        {employee.dob}</td>
+                                    <td className="align-middle"> <img src={employee.picture.thumbnail} alt={employee.name.first} /> </td>
+                                    <td className="align-middle"> {`${employee.name.first} ${employee.name.last}`} </td>
+                                    <td className="align-middle">{employee.phone}</td>
+                                    <td className="align-middle">{employee.email}</td>
+                                    <td className="align-middle">{employee.dob.age}</td>
                                 </tr>
                             )
 
                         })
-                    ) : (<> </>)
+
                     }
 
                 </tbody>
